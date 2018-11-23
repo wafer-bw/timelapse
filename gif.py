@@ -14,7 +14,10 @@ args = argparser.parse_args()
 if ".gif" not in args.output_dir:
     sys.exit("Error: Invalid output directory file extension, must use '.gif'. Use timelapse.py -h for more info.")
 
-images = [imageio.imread(args.source_dir + "/" + image) for image in sorted(os.listdir(args.source_dir)) if image.endswith(args.source_extension)]
+try:
+    images = [imageio.imread(args.source_dir + "/" + image) for image in sorted(os.listdir(args.source_dir)) if image.endswith(args.source_extension)]
+except MemoryError:
+    sys.exit("Error: Ran out of memory, use mp4.py instead.")
 
 if not images:
     sys.exit("Error: no images found at '" + args.source_dir + "' with extension '" + args.source_extension + "'")
