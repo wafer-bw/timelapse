@@ -13,7 +13,7 @@ Generate a timelapse as .gif or .mp4 from set of images.
 4. `apt-get install ffmpeg`
 5. `pip install -r requirements.txt`
 
-## `gif.py`
+## gif.py
 Generate small timelapses in GIF format. If this script runs out of memory you'll need to switch to `mp4.py`.
 
 ### Usage
@@ -36,7 +36,7 @@ optional arguments:
                         Extension of source images. (Default: '.jpg')
 ```
 
-## `mp4.py`
+## mp4.py
 Generate large timelapses in MP4 format.
 
 ### Usage
