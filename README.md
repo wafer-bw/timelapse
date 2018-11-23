@@ -2,7 +2,7 @@
 Generate a timelapse as .gif or .mp4 from set of images.
 
 ## Notes:
-* Images must be named in such a way that sorting them in ascending order keeps them in the correct frame order.
+* Source images must be named in such a way that sorting them in ascending order keeps them in the correct frame order.
 * Running `gif.py` on a large set of images may run out of memory depending on your machine's RAM. In this case you will need to use `mp4.py` instead.
 
 ## Requires
@@ -18,15 +18,15 @@ Generate a timelapse as .gif or .mp4 from set of images.
 5. `pip install -r requirements.txt`
 
 ## Use Case Example
-1. Running
-    ```
-    python gif.py ~/test/images/src/ ~/test/images/timelapse.gif
-    ```
-2. Uses images within `~/test/images/src/`:
-    ```
-    2018-09-04.png, 2018-09-05.png, 2018-09-06.png, 2018-09-07.png
-    ```
-3. To generate and save `timelapse.gif` at `~/test/images/`.
+Running...
+```
+python gif.py ~/test/images/src/ ~/test/images/timelapse.gif
+```
+uses images within `~/test/images/src/`...
+```
+2018-09-04.png, 2018-09-05.png, 2018-09-06.png, 2018-09-07.png
+```
+to generate and save `timelapse.gif` at `~/test/images/`.
 
 ## gif.py
 Generate small timelapses in GIF format. (If this script runs out of memory you'll need to switch to `mp4.py`)
