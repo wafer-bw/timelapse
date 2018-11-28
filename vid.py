@@ -38,9 +38,6 @@ try:
 
     # Move into temp directory and create video using sequentially named images
     os.chdir(temp_dir)
-    # os.system("ffmpeg -i img%0" + str(padding_count) + "d" + args.source_extension + " -y -an " + args.output_dir)
-    # os.system("ffmpeg -y -i img%0" + str(padding_count) + "d" + args.source_extension + " -r " + str(args.fps) + " -an -s 1920x1080 -c:v libx264 -b:v 3M -strict -2 -movflags faststart " + args.output_dir)
-    # os.system("ffmpeg -y -r " + str(args.fps) + " -i img%0" + str(padding_count) + "d" + args.source_extension + " -an -s 1920x1080 -c:v libx264 -b:v 3M -strict -2 -movflags faststart " + args.output_dir)
     os.system("ffmpeg -y -r " + str(args.fps) + " -i img%0" + str(padding_count) + "d" + args.source_extension + " -r " + str(args.fps) + " -an -s 1920x1080 -c:v libx264 -b:v 3M -strict -2 -movflags faststart " + args.output_dir)
 except KeyboardInterrupt:
     pass
