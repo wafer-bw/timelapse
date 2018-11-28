@@ -1,9 +1,9 @@
 # timelapse
-Generate a timelapse as .gif or .mp4 from set of images.
+Generate a timelapse as .gif or video from set of images. This is mostly for reference and learning purposes - it may be necassary to modify specifics like the ffmpeg command in `vid.py` for your specific use case.
 
 ## Notes:
 * Source images must be named in such a way that sorting them in ascending order keeps them in the correct frame order.
-* Running `gif.py` on a large set of images may run out of memory depending on your machine's RAM. In this case you will need to use `mp4.py` instead.
+* Running `gif.py` on a large set of images may run out of memory depending on your machine's RAM. In this case you will need to use `vid.py` instead.
 
 ## Requires
 * Python 2.7.15 - Python 3.6.4
@@ -29,7 +29,7 @@ uses images within `~/test/images/src/`...
 to generate and save `timelapse.gif` at `~/test/images/`.
 
 ## gif.py
-Generate small timelapses in GIF format. (If this script runs out of memory you'll need to switch to `mp4.py`)
+Generate small timelapses in GIF format. (If this script runs out of memory you'll need to switch to `vid.py`)
 
 ### Usage
 ```
@@ -51,18 +51,19 @@ optional arguments:
                         Extension of source images. (Default: '.jpg')
 ```
 
-## mp4.py
-Generate large timelapses in MP4 format.
+## vid.py
+Generate large timelapses in a video format.
+All images in input directory are renamed sequentially in a temporary directory so that an ffmpeg command can be run to convert the images to a video.
 
 ### Usage
 ```
-usage: mp4.py [-h] [-r] [-f FPS] [-s SOURCE_EXTENSION] source_dir output_dir
+usage: vid.py [-h] [-r] [-f FPS] [-s SOURCE_EXTENSION] source_dir output_dir
 
 positional arguments:
   source_dir            Source directory containing the frame images. (Ex:
                         '~/test/images/') Images must be named so that they
                         are sortable. (Ex: YYYY-MM-DD)
-  output_dir            Output directory of MP4. (Ex: '~/test/movie.mp4')
+  output_dir            Output directory of video. (Ex: '~/test/movie.mp4')
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -71,3 +72,6 @@ optional arguments:
   -s SOURCE_EXTENSION, --source_extension SOURCE_EXTENSION
                         Extension of source images. (Default: '.jpg')
 ```
+
+## Resources
+CodeMed's answer [here](https://stackoverflow.com/questions/11004137/re-sampling-h264-video-to-reduce-frame-rate-while-maintaining-high-image-quality)
